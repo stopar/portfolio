@@ -1,0 +1,32 @@
+<div class="w-full">
+
+	  <div class="flex justify-between items-center">
+	    <h1 class="font-bold text-4xl">Keahlian Koperasi</h1>
+		    <%= link_to 'Tambah Ahli Baru', new_member_path, 
+		                class: "button-primary",
+		                data: { turbo_frame: "_top" } %>
+	  </div>
+  
+   
+  <div class="w-full bg-white shadow-md rounded my-6">
+	  
+    <table class="min-w-max w-full table-auto">
+      <thead>
+        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+            <th class="py-3 px-6 text-left">Nama</th>
+            <th class="py-3 px-6 text-left">No. Kad Pengenalan</th>
+            <th class="py-3 px-6 text-center">No. Keahlian</th>
+            <th class="py-3 px-6 text-center">Pinjaman</th>
+            <th class="py-3 px-6 text-center">Tindakan</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-600 text-sm font-light">
+		  
+	          <%= render @members %>
+
+	  
+      </tbody>
+
+    </table>
+  </div>
+</div>

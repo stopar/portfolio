@@ -1,0 +1,40 @@
+<div class="mx-auto w-full">
+
+  <%= link_to sanitize("&larr; Kembali ke semua ahli"), members_path, 
+      class: "hover:text-blue-400" %>
+
+  <div class="mt-10">
+    <div class="grid grid-cols-8 gap-4 rounded-md bg-slate-200 border border-2 border-grey-500 border-dotted px-5 py-5">
+
+      <div class="col-start-1 col-span-2 flex flex-col items-center 
+        rounded-full py-3 px-3 bg-zinc-700 font-bold text-slate-200 font-medium">
+          <%= @member.number %>
+      </div>
+
+      <div class="col-start-4 col-span-4 flex flex-col items-center">
+          <h1 class="font-extrabold text-5xl"><%= @member.name %></h1>
+      </div>
+
+      <div class="col-start-1 col-span-2 flex flex-col items-center rounded-md px-3">
+        <%= @member.ic_number %>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 divide-y">
+	  
+	<%= turbo_frame_tag Loan.new do %>
+	  <div class="button-center mt-5">
+	      <%= link_to 'Tambah Pinjaman', new_member_loan_path(@member), 
+	                  class: "button-primary",
+	                  data: { turbo_frame: dom_id(Loan.new) } %>
+	  </div>
+    <% end %>
+  </div>
+  
+	<%= turbo_frame_tag "loans" do %>
+	  <%= render @loans, loan: @loans %>
+	<% end %>
+
+</div>

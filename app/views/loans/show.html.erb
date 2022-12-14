@@ -1,0 +1,149 @@
+<div class="mx-auto w-full">
+	
+    <%= link_to member_path(@member), 
+        class: "hover:text-blue-400" do %>
+			<%= sanitize("&larr;") %> <%= @member.name.capitalize %>
+	<% end %>
+	
+	<div class="mt-5 grid grid-cols-4 gap-4 justify-items-stretch rounded-md bg-slate-200 border border-2 border-grey-500 border-dotted px-5 py-5">
+		<div class="justify-self-end">
+			<p>Pinjaman:</p>
+		</div>
+		
+		<div class="justify-self-start">
+			<p><%= number_to_currency(@loan.amount, :unit => "RM ") %></p>
+		</div>
+		
+		<div class="justify-self-end">
+			<p>Faedah:</p>
+		</div>
+		
+		<div class="justify-self-start">
+			<p><%= @loan.interest %> %</p>
+		</div>
+		
+		<div class="justify-self-end">
+			<p>Tempoh:</p>
+		</div>
+		
+		<div class="justify-self-start">
+			<p><%= @loan.repayment_duration %> bulan</p>
+		</div>
+		
+		<div class="justify-self-end">
+			<p>Faedah dikenakan:</p>
+		</div>
+		
+		<div class="justify-self-start">
+			<p><%= number_to_currency((@loan.amount_with_interest - @loan.amount), :unit => "RM ") %></p>
+		</div>
+		
+		<div class="justify-self-end">
+			<p>Bayaran Bulanan:</p>
+		</div>
+		
+		<div class="justify-self-start">
+			<p><%= number_to_currency(@loan.repayment_amount, :unit => "RM ") %></p>
+		</div>
+		
+		<div class="justify-self-end">
+			<p>Bayaran Terakhir:</p>
+		</div>
+		
+		<div class="justify-self-start">
+			<p><%= number_to_currency(@loan.final_payment_amount, :unit => "RM ") %></p>
+		</div>
+		
+	</div>
+	
+	<div class="mt-10">
+		<h1 class="font-bold text-center text-3xl text-cyan-700 uppercase">Jadual pembayaran</h1>
+	</div>
+	
+	<div class="mt-5">
+	    <table class="min-w-max w-full table-auto">
+	      <thead class="border border-2 border-grey-500 border-dotted">
+	        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+	            <th class="py-3 px-6 text-left">Tarikh</th>
+	            <th class="py-3 px-6 text-center">Bayaran (RM)</th>
+	            <th class="py-3 px-6 text-center">Baki Pinjaman (RM)</th>
+	        </tr>
+	      </thead>
+		  
+	      <tbody class="text-gray-600 text-sm font-light">
+			    <tr class="border-b border-gray-200 hover:bg-gray-100">   
+			  			  
+					  <td class="py-3 px-6">
+				        <div class="text-left">
+				          <%= @loan.start_date.strftime("%-d %b %Y") %>
+				        </div>
+				      </td>
+				  
+					  <td class="py-3 px-6">
+				        <div class="text-center">
+							<p>Loan diluluskan</p>
+				        </div>
+				      </td>
+				  
+					  <td class="py-3 px-6">
+				        <div class="text-center">
+    					  <%= number_to_currency(@loan.amount_with_interest, :unit => "") %>
+				        </div>
+				      </td>			  
+			  	</tr>
+			  
+   		  <% @period.times do %>
+			    <tr class="border-b border-gray-200 hover:bg-gray-100">   
+			  			  
+					  <td class="py-3 px-6">
+				        <div class="text-left">
+				          <%= @repayment_date.strftime("%-d %b %Y") %>
+				        </div>
+				      </td>
+				  
+					  <td class="py-3 px-6">
+				        <div class="text-center">
+				          <%= number_to_currency(@payment, :unit => "") %>
+				        </div>
+				      </td>
+				  
+					  <td class="py-3 px-6">
+				        <div class="text-center">
+    					  <%= number_to_currency(@loan_amount, :unit => "") %>
+				          
+				        </div>
+				      </td>			  
+			  	</tr>   
+				
+				<% next_repayment(@repayment_date, @loan_amount, @payment)%>
+				
+		  <% end %>
+
+			    <tr class="border-b border-gray-200 hover:bg-gray-100">   
+			  			  
+					  <td class="py-3 px-6">
+				        <div class="text-left">
+				          <%= @repayment_date.strftime("%-d %b %Y") %>
+				        </div>
+				      </td>
+				  
+					  <td class="py-3 px-6">
+				        <div class="text-center">
+							<%= number_to_currency(@loan.final_payment_amount, :unit => "") %>
+				        </div>
+				      </td>
+				  
+					  <td class="py-3 px-6">
+				        <div class="text-center">
+    					  <%= number_to_currency(final_zero_amount(@loan.final_payment_amount, @payment, @loan_amount), :unit => "") %>
+				        </div>
+				      </td>			  
+			  	</tr>
+							
+	      </tbody>
+
+	    </table>
+	</div>
+
+			
+</div>
