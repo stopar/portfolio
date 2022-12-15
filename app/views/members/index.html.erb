@@ -1,32 +1,43 @@
-<div class="w-full">
 
-	  <div class="flex justify-between items-center">
-	    <h1 class="font-bold text-4xl">Keahlian Koperasi</h1>
-		    <%= link_to 'Tambah Ahli Baru', new_member_path, 
-		                class: "button-primary",
-		                data: { turbo_frame: "_top" } %>
-	  </div>
-  
-   
-  <div class="w-full bg-white shadow-md rounded my-6">
-	  
-    <table class="min-w-max w-full table-auto">
-      <thead>
-        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-            <th class="py-3 px-6 text-left">Nama</th>
-            <th class="py-3 px-6 text-left">No. Kad Pengenalan</th>
-            <th class="py-3 px-6 text-center">No. Keahlian</th>
-            <th class="py-3 px-6 text-center">Pinjaman</th>
-            <th class="py-3 px-6 text-center">Tindakan</th>
-        </tr>
-      </thead>
-      <tbody class="text-gray-600 text-sm font-light">
-		  
-	          <%= render @members %>
 
-	  
-      </tbody>
+<div class="flex items-center justify-center">
+	<div class="w-1/4">
+      <h1 class="font-bold text-4xl px-4">Borrowers</h1>
+	</div>
+	<div class="w-3/4">
+	  <%= turbo_frame_tag "new_member" do %>
+		    <%= link_to 'New borrower', new_member_path, 
+		                class: "button-primary" %>
+	  <% end %>
+	</div>
 
-    </table>
-  </div>
 </div>
+
+<div class="w-full bg-white shadow-md rounded my-6">
+
+	<table class="min-w-max w-full table-auto">
+	  <thead>
+	    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+	        <th class="py-3 px-6 text-left">Name</th>
+	        <th class="py-3 px-6 text-left">IC Number</th>
+	        <th class="py-3 px-6 text-center">Membership number</th>
+	        <th class="py-3 px-6 text-center">Loans</th>
+	        <th class="py-3 px-6 text-center">Action</th>
+	    </tr>
+	  </thead>
+	  <tbody id="member-list"class="text-gray-600 text-sm font-light">
+  		<%= render @members %>
+	  </tbody>
+
+	</table>
+
+</div>
+
+<div class="flex flex-row justify-end">
+		<%= form_tag import_members_path, multipart: true do %>
+			<%= file_field_tag :file %>
+			<%= submit_tag "Upload members", class: "button-primary" %>
+		<% end %>
+</div>
+	
+

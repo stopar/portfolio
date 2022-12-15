@@ -1,32 +1,36 @@
-<%= form_with(model: member, class: "contents") do |form| %>
+
+<%= form_with(model: member, class: "flex items-end") do |form| %>
 
   <%= form_error_notification(member) %>
   
-  <div class="my-5">
-    <%= form.label "Nama", class: "form-label" %>
+  <div class="mx-auto">
+    <%= form.label "Name", class: "form-label uppercase" %>
     <%= form.text_field :name, class: "form-textarea" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label "Nombor Kad Pengenalan", class: "form-label capitalize" %>
+  <div class="mx-auto">
+    <%= form.label "IC Number", class: "form-label uppercase" %>
     <%= form.text_field :ic_number, class: "form-textarea" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label "Nombor Keahlian", class: "form-label capitalize" %>
+  <div class="mx-auto">
+    <%= form.label "Membership Number", class: "form-label uppercase" %>
     <%= form.text_field :number, class: "form-textarea" %>
   </div>
 
-  <div class="flex flex-row-reverse p-3">
+  <div class="flex flex-row">
+	  
+  	<div class="flex-initial">
+  		<%= link_to sanitize("&larr;"), members_path, 
+  			class: "flex flex-col items-center rounded-md border border-slate-600 py-2 px-2 text-black font-medium cursor-pointer" %>
+  	</div>
+	
   	<div class="flex-initial pl-3">
 		<%= form.submit class: "button-primary" %>
 	</div>
-	
-	<div class="flex-initial">
-		<%= link_to sanitize("&larr; Kembali"), members_path, 
-			class: "flex flex-col items-center rounded-md border border-slate-600 py-3 px-3 text-black font-medium cursor-pointer" %>
-		
-	</div>
+
+
   </div>
 				   
 <% end %>
+

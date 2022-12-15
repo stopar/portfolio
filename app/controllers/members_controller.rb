@@ -19,6 +19,7 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
+    @member = Member.find_by(id: params[:id])
   end
 
   # POST /members or /members.json
@@ -26,9 +27,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
   
     if @member.save
-      respond_to do |format| 
-        format.html { redirect_to members_path, notice: "Ahli berjaya ditambah" }
-      end
+      
     else
       render :new, status: :unprocessable_entity
     end
@@ -53,6 +52,18 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to members_url, notice: "Member was successfully destroyed." }
+    end
+  end
+  
+  def upload
+  end
+  
+  def import
+    if params[:file].nil?
+      redirect_to root_path
+    else
+      counter = Member.import_return_count(params[:file])
+      redirect_to root_path, notice: "#{counter} members added"
     end
   end
 

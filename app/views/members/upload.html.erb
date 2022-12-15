@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "upload_member" do %>
+		<%= form_tag import_members_path, multipart: true do %>
+			<%= file_field_tag :file %>
+			<%= submit_tag "Upload members", class: "button-primary" %>
+		<% end %>
+<% end %>

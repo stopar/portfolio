@@ -10,4 +10,18 @@ class Member < ApplicationRecord
 
    scope :ordered, -> { order(name: :asc) }
    
+   def self.import_return_count(file)
+     
+     @counter = 0 
+     
+     CSV.foreach(file.path) do |row|
+       name, ic_number, number = row
+       member = Member.create(name: name, ic_number: ic_number, number: number)
+       @counter += 1 if member.persisted?
+     end
+     
+     return @counter
+     
+   end
+   
 end
