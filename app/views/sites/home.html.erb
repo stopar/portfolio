@@ -1,4 +1,52 @@
-<div>
-  <h1 class="font-bold text-4xl">Sites#home</h1>
-  <p>Find me in app/views/sites/home.html.erb</p>
+<div class="flex flex-row h-full">
+
+	<div class="w-1/4 font-mono bg-gradient-to-r from-orange-400 to-red-300 shadow-md rounded-lg px-5">
+		<div class="flex flex-col justify-between h-full">
+			<div class="justify-center">
+				<h1 class="text-5xl text-center font-semibold mt-5">Muz</h1>
+			</div>
+		
+			<div class="justify-center">
+				<p class="text-xl text-center">I've build a 
+					<%= link_to "web app", members_path, class: "underline hover:no-underline hover:italic hover:text-blue-500" %>
+				</p>
+			</div>
+		
+			<div class="justify-center">
+				<p class="text-xl text-center">I'm always printing 
+					<%= link_to "things", "https://www.instagram.com/st0par/", class: "underline hover:no-underline hover:italic hover:text-blue-500" %>
+				</p>
+			</div>
+		
+			<div class="justify-center">
+				<p class="text-xl text-center">I ❤️ to go on  
+					<%= link_to "adventures", "https://www.strava.com/athletes/4031922", class: "underline hover:no-underline hover:italic hover:text-blue-500" %>
+				</p>
+			</div>
+		
+			<div class="justify-center">
+				<p class="text-xl text-center">Get in touch 
+					<%= mail_to "mus.ariff@gmail.com", "@", class: "transform hover:text-blue-400 hover:scale-110" %>
+			</div>
+		</div>
+	</div>
+	
+	<div class="w-3/4 px-5 font-mono text-xl leading-9">
+		<p class="text-xl">Selamat Datang,<p>
+			
+		<p class="mt-5 indent-8">I am a Rails developer since 2012. Most web apps I've build since then has been to support 
+			my work. I've build and maintained an online repository of maintenance guides, drawings and repair procedures. I've 
+			also developed a simpler ticketing system to keep track of customers issues and repairs (like JIRA but much more simpler). 		
+		</p>
+		
+		<p class="mt-5 indent-8">I knew I could do more. So I enrolled to 
+			<%= link_to "Mix and Go", "https://mixandgo.com/", class: "underline decoration-orange-500/70 transform hover:text-blue-400 hover:scale-110" %> and
+			<%= link_to "Hotrails", "https://www.hotrails.dev/", class: "underline decoration-orange-500/70 transform hover:text-blue-400 hover:scale-110" %>. 
+			Build some apps and needed a place to showcase it (as well as my other interest).  
+		</p>
+		
+		<p class="mt-5 indent-8">Go ahead and try it out. If you have an idea for an app let's get in touch.</p>
+		
+		<p class="mt-8">Jazakuallah kahiran</p>
+	</div>
 </div>
