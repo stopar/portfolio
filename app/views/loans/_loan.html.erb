@@ -5,7 +5,7 @@
 	<!-- Elements around each corner of the content box -->
 	<div class="absolute top-2 left-2">
 		<div class="flex items-center">
-			<p class="text-sm">Kontrak: <%= loan.contract_number %></p>
+			<p class="text-sm">Contract: <%= loan.contract_number %></p>
 		</div>
 	</div>
 	
@@ -46,23 +46,23 @@
 	<!-- Information in the middle of the box -->	
 	<div class="grid grid-cols-1">
 		<div class="col-span-1 items-center mt-5">
-			<p class="text-sm text-center">Pinjaman: <%= number_to_currency(loan.amount, :unit => "RM ") %></p>
+			<p class="text-sm text-center">Loan amount: <%= number_to_currency(loan.amount, :unit => "RM ") %></p>
 		</div>
 		
 		<div class="col-span-1 items-center mt-3">
-			<p class="text-sm text-center">Tempoh: <%= loan.repayment_duration %> bulan</p>
+			<p class="text-sm text-center">Duration: <%= loan.repayment_duration %> bulan</p>
 		</div>
 		
 		<div class="col-span-1 items-center mt-3">
-			<p class="text-sm text-center">Bayaran Bulanan <%= number_to_currency(loan.repayment_amount, :unit => "RM ") %></p>
+			<p class="text-sm text-center">Monthly repayment: <%= number_to_currency(loan.repayment_amount, :unit => "RM ") %></p>
 		</div>		
 		
 		<div class="col-span-1 items-center mt-3">
-			<p class="text-sm text-center">Bayaran Terakhir: <%= number_to_currency(loan.final_payment_amount, :unit => "RM ") %></p>
+			<p class="text-sm text-center">Final payment: <%= number_to_currency(loan.final_payment_amount, :unit => "RM ") %></p>
 		</div>
 		
 		<div class="col-span-1 items-center mt-3">
-			<p class="text-sm text-center">Bayaran terakhir pada: <%= loan.end_date.strftime("%-d %b %Y") %></p>
+			<p class="text-sm text-center">Last payment date: <%= loan.end_date.strftime("%-d %b %Y") %></p>
 		</div>
 	
 	</div>

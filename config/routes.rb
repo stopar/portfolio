@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root "members#index"
+  root "sites#home"
+  
+  get 'member_csv_sample', to: 'sites#csv_sample'
     
   resources :members do
     resources :loans

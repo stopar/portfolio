@@ -19,7 +19,7 @@
 			  </div>
 		</div>
 
-	    <div class="w-28 justify-self-center">
+	    <div class="w-32 justify-self-center">
 
 		      <%= form.label "Duration", class: "block text-sm font-medium text-gray-600 text-left" %>
 
@@ -32,7 +32,7 @@
 
 	    </div>
 
-		<div class="w-20 justify-self-center">
+		<div class="w-24 justify-self-center">
 		      <%= form.label "Interest", class: "block text-sm font-medium text-gray-600 text-left" %>
 
 			  <div class="flex">
@@ -43,7 +43,7 @@
 			  </div>
 		</div>
 
-	  	<div class="flex-auto w-full">
+	  	<div class="justify-self-center w-36">
   	      <%= form.label "Contract number", class: "block text-sm font-medium text-gray-600 text-left" %>
 
   		  <div class="flex">
@@ -51,15 +51,15 @@
   		  </div>
 	  	</div>
 		
-		<div class="flex-auto w-full">
-		      <%= form.label "Start Loan", class: "block text-sm font-medium text-gray-600 text-left" %>
+		<div class="justify-self-center w-full">
+		      <%= form.label "Start Loan", class: "block text-sm font-medium text-gray-600 text-center" %>
 
-			  <div class="flex">
+			  <div class="flex justify-center">
 			      <%= form.date_select :start_date, order: [:day, :month, :year], class: "rounded-none rounded-l-md focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5" %>
 			  </div>
 		</div>
 		
-	    <div class="flex items-end flex-row-reverse">
+	    <div class="flex items-end flex-row-reverse justify-center">
 	    	<div class="flex-initial ml-3">
 		  		<%= form.submit class: "button-primary" %>
 		  	</div>

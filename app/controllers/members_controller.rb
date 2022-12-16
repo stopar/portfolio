@@ -35,24 +35,25 @@ class MembersController < ApplicationController
 
   # PATCH/PUT /members/1 or /members/1.json
   def update
-    respond_to do |format|
+
       if @member.update(member_params)
-        format.html { redirect_to member_url(@member), notice: "Member was successfully updated." }
-        format.json { render :show, status: :ok, location: @member }
+        redirect_to members_path, notice: "Member was successfully updated." 
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @member.errors, status: :unprocessable_entity }
+        render :edit, status: :unprocessable_entity 
+
       end
-    end
+
   end
 
   # DELETE /members/1 or /members/1.json
   def destroy
     @member.destroy
-
-    respond_to do |format|
-      format.html { redirect_to members_url, notice: "Member was successfully destroyed." }
-    end
+    
+    redirect_to members_path, alert: "Member was successfully destroyed." 
+   
+    # respond_to do |format|
+    #   format.html { redirect_to members_path, notice: "Member was successfully destroyed." }
+    # end
   end
   
   def upload
@@ -60,10 +61,15 @@ class MembersController < ApplicationController
   
   def import
     if params[:file].nil?
-      redirect_to root_path
+      redirect_to members_path
     else
       counter = Member.import_return_count(params[:file])
-      redirect_to root_path, notice: "#{counter} members added"
+      flash.now[:notice] =  "#{counter} members added"
+      @members = Member.all.ordered
+
+      # respond_to do |format|
+      #   format.turbo_stream { flash.now[:notice] = "#{@counter} members added"}
+      # end
     end
   end
 

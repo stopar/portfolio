@@ -7,7 +7,7 @@
 	
 	<div class="mt-5 grid grid-cols-4 gap-4 justify-items-stretch rounded-md bg-slate-200 border border-2 border-grey-500 border-dotted px-5 py-5">
 		<div class="justify-self-end">
-			<p>Pinjaman:</p>
+			<p>Loan Amount:</p>
 		</div>
 		
 		<div class="justify-self-start">
@@ -15,7 +15,7 @@
 		</div>
 		
 		<div class="justify-self-end">
-			<p>Faedah:</p>
+			<p>Interest:</p>
 		</div>
 		
 		<div class="justify-self-start">
@@ -23,15 +23,15 @@
 		</div>
 		
 		<div class="justify-self-end">
-			<p>Tempoh:</p>
+			<p>Duration:</p>
 		</div>
 		
 		<div class="justify-self-start">
-			<p><%= @loan.repayment_duration %> bulan</p>
+			<p><%= @loan.repayment_duration %> months</p>
 		</div>
 		
 		<div class="justify-self-end">
-			<p>Faedah dikenakan:</p>
+			<p>Interest amount:</p>
 		</div>
 		
 		<div class="justify-self-start">
@@ -39,7 +39,7 @@
 		</div>
 		
 		<div class="justify-self-end">
-			<p>Bayaran Bulanan:</p>
+			<p>Monthly repayment:</p>
 		</div>
 		
 		<div class="justify-self-start">
@@ -47,7 +47,7 @@
 		</div>
 		
 		<div class="justify-self-end">
-			<p>Bayaran Terakhir:</p>
+			<p>Final Payment:</p>
 		</div>
 		
 		<div class="justify-self-start">
@@ -57,16 +57,16 @@
 	</div>
 	
 	<div class="mt-10">
-		<h1 class="font-bold text-center text-3xl text-cyan-700 uppercase">Jadual pembayaran</h1>
+		<h1 class="font-bold text-center text-3xl text-cyan-700 uppercase">Payment schedule</h1>
 	</div>
 	
 	<div class="mt-5">
 	    <table class="min-w-max w-full table-auto">
 	      <thead class="border border-2 border-grey-500 border-dotted">
 	        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-	            <th class="py-3 px-6 text-left">Tarikh</th>
-	            <th class="py-3 px-6 text-center">Bayaran (RM)</th>
-	            <th class="py-3 px-6 text-center">Baki Pinjaman (RM)</th>
+	            <th class="py-3 px-6 text-left">Date</th>
+	            <th class="py-3 px-6 text-center">Payment (RM)</th>
+	            <th class="py-3 px-6 text-center">Balance Amount (RM)</th>
 	        </tr>
 	      </thead>
 		  
@@ -81,7 +81,7 @@
 				  
 					  <td class="py-3 px-6">
 				        <div class="text-center">
-							<p>Loan diluluskan</p>
+							<p>Loan Approve</p>
 				        </div>
 				      </td>
 				  

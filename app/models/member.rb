@@ -20,6 +20,12 @@ class Member < ApplicationRecord
        @counter += 1 if member.persisted?
      end
      
+     # If you want to remove headers then uncomment the code below and comment the above code
+     # CSV.foreach(file.path, headers: true) do |row|
+     #   member = Member.create(name: row["name"], ic_number: row["ic_number"], number: row["number"])
+     #   @counter += 1 if member.persisted?
+     # end
+     
      return @counter
      
    end

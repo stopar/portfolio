@@ -1,12 +1,12 @@
   <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+    <p class="opacity-75 py-2 px-3 bg-green-600 mb-5 text-slate-100 font-medium rounded-full inline-block" id="notice" >
       <%= notice %>
     </p>
   <% end %>
 
 
   <% if alert.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="notice">
-      <%= notice %>
+    <p class="opacity-75 py-2 px-3 bg-red-700 mb-5 text-slate-300 font-medium rounded-full inline-block" id="notice" >
+      <%= alert %>
     </p>
   <% end %>

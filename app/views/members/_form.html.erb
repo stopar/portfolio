@@ -3,24 +3,24 @@
 
   <%= form_error_notification(member) %>
   
-  <div class="mx-auto">
+  <div class="mx-auto px-2">
     <%= form.label "Name", class: "form-label uppercase" %>
     <%= form.text_field :name, class: "form-textarea" %>
   </div>
 
-  <div class="mx-auto">
+  <div class="mx-auto px-2"">
     <%= form.label "IC Number", class: "form-label uppercase" %>
     <%= form.text_field :ic_number, class: "form-textarea" %>
   </div>
 
-  <div class="mx-auto">
+  <div class="mx-auto px-2"">
     <%= form.label "Membership Number", class: "form-label uppercase" %>
     <%= form.text_field :number, class: "form-textarea" %>
   </div>
 
   <div class="flex flex-row">
 	  
-  	<div class="flex-initial">
+  	<div class="flex-initial ml-3">
   		<%= link_to sanitize("&larr;"), members_path, 
   			class: "flex flex-col items-center rounded-md border border-slate-600 py-2 px-2 text-black font-medium cursor-pointer" %>
   	</div>

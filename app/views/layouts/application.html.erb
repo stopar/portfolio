@@ -10,15 +10,24 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="h-full">
-    <main class="container mx-auto mt-20 px-5">
+  <body class="flex flex-col justify-between h-full">
+	  
+    <main class="container text-sm mx-auto mt-20 px-5">
 
-      <div id="flash" class="flash">
+      <div id="flash" class="flash flex justify-center">
           <%= render "layouts/flash" %>
       </div>
 	  
       <%= yield %>
 
     </main>
+	
+	<footer class="bg-gray-900 text-slate-300 lg:text-left">
+	  <div class=" text-sm text-center p-4">
+			<p>Made with ❤️ by Muz | Get in touch <%= mail_to "mus.ariff@gmail.com", "@", class: "transform hover:text-blue-400 hover:scale-110" %>
+			</p>								
+	  </div>
+	</footer>
+	
   </body>
 </html>

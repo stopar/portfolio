@@ -1,6 +1,19 @@
 <%= turbo_frame_tag "upload_member" do %>
+
+	<div class="flex items-center">
+	  <div class="mr-3 text-orange-600 hover:text-blue-500">	
+		<%= link_to "Download Sample CSV", "/sample_member_list.csv" %>
+	  </div>
+	  
+	  <div class="mr-3">
+		  <p> | </p>
+  	  </div>
+	  <div class="">
 		<%= form_tag import_members_path, multipart: true do %>
 			<%= file_field_tag :file %>
 			<%= submit_tag "Upload members", class: "button-primary" %>
 		<% end %>
+	  </div>
+   </div>
+
 <% end %>

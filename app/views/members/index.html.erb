@@ -19,7 +19,7 @@
 	  <thead>
 	    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
 	        <th class="py-3 px-6 text-left">Name</th>
-	        <th class="py-3 px-6 text-left">IC Number</th>
+	        <th class="py-3 px-6 text-center">IC Number</th>
 	        <th class="py-3 px-6 text-center">Membership number</th>
 	        <th class="py-3 px-6 text-center">Loans</th>
 	        <th class="py-3 px-6 text-center">Action</th>
@@ -34,12 +34,10 @@
 </div>
 
 <div class="flex flex-row justify-end">
-	<div class="flex-initial">
-		<%= turbo_frame_tag "upload_member" do %>
-			<%= link_to sanitize("Upload CSV members &rarr;"), upload_members_path, 
-				class: "py-2 px-2 text-black hover:text-blue-500 font-medium cursor-pointer" %>
-		<% end %>
-	</div>
+	<%= turbo_frame_tag "upload_member" do %>
+		<%= link_to sanitize("Add members via CSV upload &rarr;"), upload_members_path, 
+			class: "py-2 px-2 text-black hover:text-blue-500 font-medium cursor-pointer" %>
+	<% end %>
 </div>
 	
 

@@ -13,7 +13,7 @@ div.field_with_errors > :is(input, textarea, select) {
   }
 
   .form-textarea{
-    @apply block shadow rounded-md border border-gray-200 outline-none px-2 py-2 mt-1 w-full
+    @apply block shadow text-sm text-gray-600 rounded-md border border-gray-200 outline-none px-2 py-2 mt-1 w-full
   }
 
   .button-center {
